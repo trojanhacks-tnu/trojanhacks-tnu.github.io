@@ -1041,3 +1041,105 @@ img {
     margin-bottom: var(--space-5);
   }
 }
+
+/* ==========================================================================
+   Chapter 06 — Claim the Glory
+   Only this chapter is styled below. 07–09 still inherit the global
+   foundation rules only.
+   ========================================================================== */
+
+.section-glory {
+  background: var(--color-surface);
+  padding-top: max(var(--space-8), calc(var(--header-height) + var(--space-5)));
+  padding-bottom: var(--space-8);
+  scroll-margin-top: calc(var(--header-height) + var(--space-4));
+}
+
+.section-glory-intro {
+  max-width: var(--text-max-width);
+  margin-bottom: var(--space-6);
+}
+
+.section-glory-heading {
+  display: flex;
+  flex-direction: column;
+  font-size: var(--text-section-title);
+  line-height: 1.05;
+  letter-spacing: -0.01em;
+  text-transform: uppercase;
+  color: var(--color-text);
+  margin-top: var(--space-2);
+}
+
+.section-glory-copy {
+  margin-top: var(--space-3);
+  font-size: var(--text-body);
+  color: var(--color-text);
+  line-height: 1.6;
+}
+
+.glory-status {
+  margin-top: var(--space-4);
+  padding-top: var(--space-3);
+  border-top: 1px solid var(--color-border);
+}
+
+.glory-status-label {
+  font-size: var(--text-small-label);
+  font-weight: var(--weight-body-semibold);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+}
+
+.glory-status-value {
+  margin-top: 2px;
+  font-family: var(--font-heading);
+  font-size: var(--text-hero-subtitle);
+  font-weight: var(--weight-heading-medium);
+  color: var(--color-text);
+}
+
+/* One quiet line climbs, its zigzag amplitude narrowing as it nears the
+   summit, then a single resolved line continues past the peak toward
+   Chapter 07. No text is anchored to the SVG — this chapter stays
+   deliberately simpler than Chapter 05. */
+.glory-map {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1200 / 500;
+}
+
+.glory-svg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.glory-svg--mobile {
+  display: none;
+}
+
+.glory-waypoint--peak {
+  fill: var(--color-accent-gold);
+  opacity: 1;
+}
+
+@media (max-width: 640px) {
+  .glory-map {
+    aspect-ratio: 300 / 480;
+  }
+  .glory-svg--desktop {
+    display: none;
+  }
+  .glory-svg--mobile {
+    display: block;
+  }
+  .section-glory {
+    padding-bottom: var(--space-6);
+  }
+  .section-glory-intro {
+    margin-bottom: var(--space-5);
+  }
+}
