@@ -65,6 +65,13 @@
   --path-opacity-bold: 1;
   --path-opacity-quiet: 0.55;
   --path-opacity-faint: 0.18;
+
+  /* ---------- Layout chrome ---------- */
+  /* Real height of the sticky site header. .nav enforces this as a
+     min-height so the value stays authoritative, and every story
+     section's scroll-margin/clearance derives from it — one source
+     of truth instead of guessed pixel values per chapter. */
+  --header-height: 72px;
 }
 
 /*
@@ -82,6 +89,11 @@
 
 html {
   scroll-behavior: smooth;
+  /* Site-wide anchor-jump clearance: any #id target (nav clicks, a
+     bookmarked URL fragment, browser back/forward) stops this far
+     below the top of the viewport, so the sticky header never lands
+     on top of it. Reusable for every future chapter automatically. */
+  scroll-padding-top: var(--header-height);
 }
 
 body {
@@ -190,6 +202,8 @@ img {
   max-width: var(--content-max-width);
   margin-inline: auto;
   padding: var(--space-2) var(--space-3);
+  min-height: var(--header-height);
+  box-sizing: border-box;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -839,6 +853,191 @@ img {
     padding-block: var(--space-6);
   }
   .section-build-intro {
+    margin-bottom: var(--space-5);
+  }
+}
+
+/* ==========================================================================
+   Chapter 05 — The Forge
+   Only this chapter is styled below. 06–09 still inherit the global
+   foundation rules only.
+   ========================================================================== */
+
+.section-forge {
+  background: var(--color-bg);
+  /* Real layout clearance, not just a scroll-jump offset: top padding
+     is guaranteed to clear the sticky header (plus breathing room)
+     even if someone lands mid-scroll rather than via an anchor jump. */
+  padding-top: max(var(--space-8), calc(var(--header-height) + var(--space-5)));
+  padding-bottom: var(--space-8);
+  scroll-margin-top: calc(var(--header-height) + var(--space-4));
+}
+
+.section-forge-intro {
+  max-width: var(--text-max-width);
+  margin-bottom: var(--space-5);
+}
+
+.section-forge-heading {
+  display: flex;
+  flex-direction: column;
+  font-size: var(--text-section-title);
+  line-height: 1.05;
+  letter-spacing: -0.01em;
+  text-transform: uppercase;
+  color: var(--color-text);
+  margin-top: var(--space-2);
+}
+
+.section-forge-copy {
+  margin-top: var(--space-3);
+  font-size: var(--text-body);
+  color: var(--color-text);
+  line-height: 1.6;
+}
+
+/* The forge map: the path enters calmly, gets deliberately unstable
+   around BREAK (a sharp overshoot-and-reverse), settles through LEARN
+   and REBUILD, then resolves into one clean line by SHIP. Stages are
+   real HTML, positioned by the same percentage-matches-viewBox technique
+   used in Chapters 03–04, so they stay locked to their waypoint. */
+.forge-map {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1200 / 700;
+}
+
+.forge-svg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+/* SHIP's final approach breaks from the quiet, unsettled opacity used
+   everywhere else in this path — a deliberate signal of resolution. */
+.arena-path--resolved {
+  opacity: var(--path-opacity-bold);
+}
+
+.forge-waypoint--break {
+  fill: var(--color-accent-gold);
+  opacity: 1;
+}
+
+.forge-waypoint--ship {
+  opacity: var(--path-opacity-bold);
+}
+
+.forge-stage-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.forge-stage {
+  position: absolute;
+  text-align: center;
+  width: clamp(90px, 12vw, 140px);
+}
+
+.forge-stage--below {
+  transform: translate(-50%, 14px);
+}
+
+.forge-stage--above {
+  transform: translate(-50%, calc(-100% - 14px));
+}
+
+.forge-stage--01 { left: 79.2%; top: 12.9%; }
+.forge-stage--02 { left: 66.7%; top: 24.3%; }
+.forge-stage--03 { left: 26.7%; top: 51.4%; }
+.forge-stage--04 { left: 46.7%; top: 62.9%; }
+.forge-stage--05 { left: 23.3%; top: 74.3%; }
+.forge-stage--06 { left: 11.7%; top: 92.9%; }
+
+.forge-stage-label {
+  font-family: var(--font-heading);
+  font-size: var(--text-small-label);
+  font-weight: var(--weight-heading-bold);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--color-text);
+}
+
+/* BREAK and SHIP get slight emphasis — size/weight/color only,
+   never gold text, which fails contrast at this size. */
+.forge-stage--break .forge-stage-label {
+  font-size: var(--text-body);
+}
+
+.forge-stage--ship .forge-stage-label {
+  color: var(--color-purple);
+}
+
+@media (max-width: 860px) {
+  .forge-map {
+    aspect-ratio: auto;
+    height: auto;
+  }
+  .forge-svg {
+    display: none;
+  }
+  .forge-stage-list {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-4);
+    padding-left: var(--space-6);
+  }
+  .forge-stage-list::before {
+    content: "";
+    position: absolute;
+    top: 6px;
+    bottom: 6px;
+    left: 6px;
+    width: var(--path-stroke-mobile);
+    background: var(--color-purple);
+    opacity: var(--path-opacity-quiet);
+  }
+  .forge-stage {
+    position: relative;
+    left: auto;
+    top: auto;
+    width: auto;
+    text-align: left;
+  }
+  .forge-stage--below,
+  .forge-stage--above {
+    transform: none;
+  }
+  .forge-stage::before {
+    content: "";
+    position: absolute;
+    left: calc(var(--space-6) * -1 + 2px);
+    top: 6px;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: var(--color-purple);
+    opacity: var(--path-opacity-quiet);
+  }
+  .forge-stage--break::before {
+    background: var(--color-accent-gold);
+    opacity: 1;
+  }
+  .forge-stage--ship::before {
+    opacity: var(--path-opacity-bold);
+  }
+}
+
+@media (max-width: 640px) {
+  .section-forge {
+    /* padding-top intentionally NOT reset here — it must keep
+       clearing the sticky header on mobile too. */
+    padding-bottom: var(--space-6);
+  }
+  .section-forge-intro {
     margin-bottom: var(--space-5);
   }
 }
