@@ -1,0 +1,68 @@
+/*
+  Trojan Hacks — Design Tokens
+  Locked visual system. See design/brand-guide.md and DECISIONS.md.
+  This file defines tokens only — no section styling yet.
+*/
+
+:root {
+
+  /* ---------- Color ---------- */
+  --color-purple: #522D6D;
+  --color-purple-dark: #34204A;
+  --color-purple-light: #EDE4F5;
+  --color-bg: #FBFAFC;
+  --color-surface: #F4F1F8;
+  --color-text: #1A1420;
+  --color-text-muted: #5C5566;
+  --color-accent-gold: #D4A73B;
+  --color-border: #DDD6E5;
+
+  /* ---------- Typography ---------- */
+  --font-heading: 'Space Grotesk', system-ui, sans-serif;
+  --font-body: 'IBM Plex Sans', system-ui, sans-serif;
+
+  --weight-heading-medium: 500;
+  --weight-heading-bold: 700;
+  --weight-body-regular: 400;
+  --weight-body-medium: 500;
+  --weight-body-semibold: 600;
+
+  /*
+    Type scale — fluid between a 360px and 1280px viewport.
+    Each clamp() is bounded by the locked mobile (min) and
+    desktop (max) sizes; only the value in between is fluid.
+  */
+  --text-hero-title: clamp(40px, calc(40px + 32 * ((100vw - 360px) / 920)), 72px);
+  --text-hero-subtitle: clamp(18px, calc(18px + 6 * ((100vw - 360px) / 920)), 24px);
+  --text-section-title: clamp(28px, calc(28px + 12 * ((100vw - 360px) / 920)), 40px);
+  --text-subsection-title: clamp(20px, calc(20px + 4 * ((100vw - 360px) / 920)), 24px);
+  --text-body: clamp(16px, calc(16px + 2 * ((100vw - 360px) / 920)), 18px);
+  --text-small-label: clamp(13px, calc(13px + 1 * ((100vw - 360px) / 920)), 14px);
+  --text-button: clamp(15px, calc(15px + 1 * ((100vw - 360px) / 920)), 16px);
+
+  /* ---------- Spacing scale ---------- */
+  --space-1: 8px;
+  --space-2: 16px;
+  --space-3: 24px;
+  --space-4: 32px;
+  --space-5: 48px;
+  --space-6: 64px;
+  --space-7: 96px;
+  --space-8: 128px;
+
+  /* ---------- Layout widths ---------- */
+  --content-max-width: 1280px;
+  --text-max-width: 680px;
+
+  /* ---------- Section padding ---------- */
+  --section-padding-mobile: 64px;
+  --section-padding-desktop: 128px;
+
+  /* ---------- Arena path ---------- */
+  --path-color: #522D6D;
+  --path-stroke-desktop: 2.5px;
+  --path-stroke-mobile: 1.5px;
+  --path-opacity-bold: 1;
+  --path-opacity-quiet: 0.55;
+  --path-opacity-faint: 0.18;
+}

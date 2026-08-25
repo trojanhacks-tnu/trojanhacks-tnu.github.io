@@ -50,25 +50,52 @@ Do not use:
 - excessive gradients
 - cluttered layouts
 
-## Colors
+## Colors — LOCKED
 
-Trevecca purple must be incorporated.
+Trevecca purple is incorporated as Primary Purple.
 
-Exact final palette:
+| Token | Hex |
+|---|---|
+| Primary Purple | `#522D6D` |
+| Dark Purple | `#34204A` |
+| Light Purple | `#EDE4F5` |
+| Main Background | `#FBFAFC` |
+| Secondary Surface | `#F4F1F8` |
+| Main Text | `#1A1420` |
+| Muted Text | `#5C5566` |
+| Gold / Accent | `#D4A73B` |
+| Border | `#DDD6E5` |
 
-TBD
+**Accessibility rule:** Gold `#D4A73B` is a decorative/accent color only (icons, badges, buttons with dark text). Do not use it for small normal text on light backgrounds — contrast is too low. Use Primary Purple or Main Text for readable CTA text.
 
-## Typography
+## Typography — LOCKED
 
-Heading font:
+Heading font: **Space Grotesk** (weights: 500, 700)
 
-TBD
-
-Body font:
-
-TBD
+Body font: **IBM Plex Sans** (weights: 400, 500, 600)
 
 Typography should feel modern and highly readable.
+
+## Type Scale — LOCKED
+
+| Element | Desktop | Mobile |
+|---|---|---|
+| Hero Title | 72px | 40px |
+| Hero Supporting Headline | 24px | 18px |
+| Section Title | 40px | 28px |
+| Subsection Title | 24px | 20px |
+| Body | 18px | 16px |
+| Small Label | 14px | 13px |
+| Button | 16px | 15px |
+
+## Spacing System — LOCKED
+
+Scale: 8 / 16 / 24 / 32 / 48 / 64 / 96 / 128 px
+
+- Maximum content width: 1280px
+- Maximum paragraph width: 680px
+- Desktop section vertical padding: 128px
+- Mobile section vertical padding: 64px
 
 ## Logo
 
@@ -125,6 +152,16 @@ A single continuous, angular "arena path" runs through the whole page and change
 - Fades during The Alliance
 - Nearly disappears during Know Before You Enter
 - Returns strongly and terminates at Your Move
+
+## Arena Path — Locked Specification
+
+- Desktop stroke width: 2.5px
+- Mobile stroke width: 1.5px
+- Main color: `#522D6D`
+- Opacity: 100% at The Gates and Your Move · ~55% through intermediate story sections · ~18% and dashed during FAQ
+- Geometry: sharp, angular, faceted — no curved path styling, no rounded joins
+- Desktop behavior: may branch and move diagonally
+- Mobile behavior: simplifies into one vertical line with stacked waypoint dots
 
 ## Narrative Rules
 

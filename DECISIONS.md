@@ -52,6 +52,14 @@ Narrative rule: Trojan mythology is metaphor, not literal historical illustratio
 
 Full chapter purposes and complete narrative rules are recorded in PROJECT_CONTEXT.md and design/brand-guide.md.
 
+### Visual System — CONFIRMED
+
+Colors: Primary Purple `#522D6D` · Dark Purple `#34204A` · Light Purple `#EDE4F5` · Main Background `#FBFAFC` · Secondary Surface `#F4F1F8` · Main Text `#1A1420` · Muted Text `#5C5566` · Gold/Accent `#D4A73B` · Border `#DDD6E5`. Gold is decorative/accent only — never small text on light backgrounds.
+
+Typography: Space Grotesk (500, 700) for headings, IBM Plex Sans (400, 500, 600) for body.
+
+Type scale, spacing scale (base-8, 1280px content width, 680px paragraph width, 64px→128px section padding), and the full Arena Path specification (stroke widths, opacity behavior, angular geometry, desktop/mobile behavior) are recorded in design/brand-guide.md.
+
 ---
 
 ## Proposed / Not Confirmed
