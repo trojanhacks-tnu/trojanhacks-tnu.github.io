@@ -414,18 +414,55 @@
     </section>
 
     <!-- 09 — YOUR MOVE -->
-    <section id="your-move" aria-labelledby="your-move-heading">
-      <h2 id="your-move-heading">Your Move.</h2>
-      <p>Registration details will be announced.</p>
-      <p class="status-badge">To Be Announced</p>
+    <section id="your-move" class="section-finale" aria-labelledby="your-move-heading">
+      <div class="finale-inner container">
+
+        <div class="finale-content">
+          <p class="chapter-label">09 / Your Move</p>
+          <h2 id="your-move-heading" class="finale-heading">
+            <span>Your</span>
+            <span>Move.</span>
+          </h2>
+          <p class="finale-subheading">The Gates Will Open Soon.</p>
+          <p class="finale-copy">Trojan Hacks 2026 is coming. Registration details will be announced soon.</p>
+
+          <div class="finale-status">
+            <p class="finale-status-label">Registration</p>
+            <p class="finale-status-value">To Be Announced</p>
+          </div>
+        </div>
+
+        <div class="finale-path-zone">
+          <div class="finale-visual" aria-hidden="true">
+            <svg class="finale-gate finale-gate--desktop" viewBox="0 0 400 700" preserveAspectRatio="none" focusable="false">
+              <path class="gate-line" d="M180 0 L180 60 L100 140" />
+              <path class="gate-accent" d="M180 0 L150 0" />
+              <path class="gate-line" d="M220 0 L220 60 L300 140" />
+              <path class="arena-path" d="M200 0 L200 250 L200 500 L200 620" />
+              <circle class="path-waypoint finale-waypoint" cx="200" cy="620" r="9" />
+            </svg>
+
+            <svg class="finale-gate finale-gate--mobile" viewBox="0 0 220 420" preserveAspectRatio="none" focusable="false">
+              <path class="gate-line" d="M100 0 L100 40 L60 90" />
+              <path class="gate-accent" d="M100 0 L80 0" />
+              <path class="gate-line" d="M120 0 L120 40 L160 90" />
+              <path class="arena-path" d="M110 0 L110 200 L110 420" />
+              <circle class="path-waypoint finale-waypoint" cx="110" cy="420" r="7" />
+            </svg>
+          </div>
+        </div>
+
+      </div>
     </section>
 
   </main>
 
-  <footer>
-    <p>Trojan Hacks</p>
-    <p>Trevecca Nazarene University<br>Nashville, Tennessee</p>
-    <p>Built by students. For students who build.</p>
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <p class="footer-brand">Trojan Hacks</p>
+      <p class="footer-location">Trevecca Nazarene University<br>Nashville, Tennessee</p>
+      <p class="footer-note">Built by students. For students who build.</p>
+    </div>
   </footer>
 
   <script src="assets/js/main.js" defer></script>

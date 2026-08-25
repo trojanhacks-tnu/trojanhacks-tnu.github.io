@@ -1451,3 +1451,182 @@ img {
     padding-bottom: var(--space-6);
   }
 }
+
+/* ==========================================================================
+   Chapter 09 — Your Move
+   Only this chapter (and the footer below it) is styled below. This is
+   the one deliberate full-color inversion on the page — every token
+   referenced here is redefined locally on .section-finale, so nothing
+   outside this section is affected and Chapters 01–08 stay untouched.
+   ========================================================================== */
+
+.section-finale {
+  /* Local overrides: reused classes (.chapter-label, .gate-line,
+     .gate-accent, .arena-path, .path-waypoint) read these same custom
+     properties, so they automatically become legible on a dark ground
+     without duplicating a single rule from Chapter 01. */
+  --color-text: #FBFAFC;
+  --color-text-muted: #EDE4F5;
+  --color-purple: #EDE4F5;
+  --path-color: #EDE4F5;
+
+  position: relative;
+  background: var(--color-purple-dark);
+  color: var(--color-text);
+  min-height: calc(100svh - var(--header-height));
+  min-height: calc(100vh - var(--header-height));
+  display: flex;
+  align-items: center;
+  padding-block: var(--space-8);
+  overflow: hidden;
+  scroll-margin-top: calc(var(--header-height) + var(--space-4));
+}
+
+.finale-inner {
+  position: relative;
+  width: 100%;
+  max-width: 1040px;
+}
+
+.finale-content {
+  position: relative;
+  z-index: 2;
+  max-width: var(--text-max-width);
+}
+
+.finale-heading {
+  display: flex;
+  flex-direction: column;
+  margin-top: var(--space-2);
+  font-size: var(--text-section-title);
+  line-height: 1.05;
+  letter-spacing: -0.01em;
+  text-transform: uppercase;
+  color: var(--color-text);
+}
+
+.finale-subheading {
+  margin-top: var(--space-3);
+  font-family: var(--font-heading);
+  font-size: var(--text-hero-subtitle);
+  font-weight: var(--weight-heading-medium);
+  text-transform: uppercase;
+  color: var(--color-purple);
+}
+
+.finale-copy {
+  margin-top: var(--space-3);
+  font-size: var(--text-body);
+  color: var(--color-text-muted);
+  line-height: 1.6;
+}
+
+.finale-status {
+  margin-top: var(--space-5);
+  padding-top: var(--space-3);
+  border-top: 1px solid rgba(251, 250, 252, 0.25);
+}
+
+.finale-status-label {
+  font-size: var(--text-small-label);
+  font-weight: var(--weight-body-semibold);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+}
+
+.finale-status-value {
+  margin-top: 2px;
+  font-family: var(--font-heading);
+  font-size: var(--text-hero-subtitle);
+  font-weight: var(--weight-heading-medium);
+  color: var(--color-text);
+}
+
+/* The gate echoes Chapter 01's geometry (same .gate-line/.gate-accent
+   classes, same single gold corner tick) but the two posts flare
+   outward instead of standing parallel — an open threshold rather
+   than a closing one. The path returns to full opacity (the default
+   .arena-path strength) for the first time since Chapter 01. */
+.finale-path-zone {
+  position: absolute;
+  z-index: 1;
+  top: calc(var(--text-section-title) * 2 + var(--space-3));
+  right: clamp(8px, 4vw, 32px);
+  width: clamp(160px, 20vw, 260px);
+  /* viewport-relative, not a percentage of .finale-inner — that height
+     is auto (content-sized), so a percentage here would resolve to
+     nothing. This mirrors the working technique from Chapter 01. */
+  height: calc(100vh - var(--header-height) - (var(--text-section-title) * 2 + var(--space-3)));
+  pointer-events: none;
+}
+
+.finale-visual {
+  width: 100%;
+  height: 100%;
+}
+
+.finale-gate {
+  width: 100%;
+  height: 100%;
+}
+
+.finale-gate--mobile {
+  display: none;
+}
+
+.finale-waypoint {
+  opacity: var(--path-opacity-bold);
+}
+
+@media (max-width: 860px) {
+  .finale-path-zone {
+    position: relative;
+    top: auto;
+    right: auto;
+    width: 100%;
+    height: clamp(200px, 38vh, 300px);
+    margin-top: var(--space-5);
+  }
+}
+
+@media (max-width: 640px) {
+  .section-finale {
+    padding-block: var(--space-6);
+  }
+  .finale-gate--desktop {
+    display: none;
+  }
+  .finale-gate--mobile {
+    display: block;
+  }
+}
+
+/* ---- Footer ---- */
+
+.site-footer {
+  border-top: 1px solid var(--color-border);
+}
+
+.footer-inner {
+  padding-block: var(--space-6);
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-1);
+}
+
+.footer-brand {
+  font-family: var(--font-heading);
+  font-weight: var(--weight-heading-bold);
+  font-size: var(--text-body);
+  color: var(--color-text);
+}
+
+.footer-location,
+.footer-note {
+  font-size: var(--text-small-label);
+  color: var(--color-text-muted);
+  line-height: 1.5;
+}
