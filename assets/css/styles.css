@@ -1300,3 +1300,154 @@ img {
     padding-bottom: var(--space-6);
   }
 }
+
+/* ==========================================================================
+   Chapter 08 — Know Before You Enter
+   Only this chapter is styled below. 09 still inherits the global
+   foundation rules only. This is the quietest chapter on the page —
+   usability over visual drama.
+   ========================================================================== */
+
+.section-faq {
+  position: relative;
+  background: var(--color-surface);
+  padding-top: max(var(--space-8), calc(var(--header-height) + var(--space-5)));
+  padding-bottom: var(--space-8);
+  scroll-margin-top: calc(var(--header-height) + var(--space-4));
+}
+
+.section-faq-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.3fr;
+  gap: var(--space-6);
+  align-items: start;
+}
+
+.section-faq-heading {
+  display: flex;
+  flex-direction: column;
+  font-size: var(--text-section-title);
+  line-height: 1.05;
+  letter-spacing: -0.01em;
+  text-transform: uppercase;
+  color: var(--color-text);
+  margin-top: var(--space-2);
+}
+
+.section-faq-copy {
+  margin-top: var(--space-3);
+  font-size: var(--text-body);
+  color: var(--color-text-muted);
+  line-height: 1.6;
+}
+
+.faq-list {
+  max-width: var(--text-max-width);
+}
+
+.faq-item {
+  border-top: 1px solid var(--color-border);
+}
+
+.faq-item:last-child {
+  border-bottom: 1px solid var(--color-border);
+}
+
+.faq-question {
+  list-style: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-3);
+  padding: var(--space-3) 0;
+  font-family: var(--font-heading);
+  font-weight: var(--weight-heading-medium);
+  font-size: var(--text-body);
+  color: var(--color-text);
+  min-height: 44px;
+}
+
+.faq-question::-webkit-details-marker {
+  display: none;
+}
+
+.faq-question::marker {
+  content: "";
+}
+
+.faq-icon {
+  flex: none;
+  width: 20px;
+  height: 20px;
+  position: relative;
+}
+
+.faq-icon::before,
+.faq-icon::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  background: var(--color-purple);
+  transform: translate(-50%, -50%);
+}
+
+.faq-icon::before {
+  width: 12px;
+  height: 2px;
+}
+
+.faq-icon::after {
+  width: 2px;
+  height: 12px;
+}
+
+.faq-item[open] .faq-icon::after {
+  display: none;
+}
+
+.faq-answer {
+  max-width: var(--text-max-width);
+  margin: 0 0 var(--space-3);
+  font-size: var(--text-body);
+  color: var(--color-text-muted);
+  line-height: 1.6;
+}
+
+/* The path nearly disappears here: one faint, dashed, static line,
+   no waypoints — quiet enough to never compete with the FAQ text. */
+.section-faq-path {
+  position: absolute;
+  top: var(--space-6);
+  bottom: var(--space-6);
+  right: clamp(8px, 4vw, 32px);
+  width: 20px;
+  pointer-events: none;
+}
+
+.section-faq-path svg {
+  width: 100%;
+  height: 100%;
+}
+
+.arena-path--faint {
+  opacity: var(--path-opacity-faint);
+  stroke-dasharray: 6 8;
+}
+
+@media (max-width: 860px) {
+  .section-faq-grid {
+    grid-template-columns: 1fr;
+    gap: var(--space-5);
+  }
+  .section-faq-path {
+    right: 8px;
+  }
+}
+
+@media (max-width: 640px) {
+  .section-faq {
+    padding-bottom: var(--space-6);
+  }
+}

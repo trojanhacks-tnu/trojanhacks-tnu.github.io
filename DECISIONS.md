@@ -60,6 +60,12 @@ Typography: Space Grotesk (500, 700) for headings, IBM Plex Sans (400, 500, 600)
 
 Type scale, spacing scale (base-8, 1280px content width, 680px paragraph width, 64px→128px section padding), and the full Arena Path specification (stroke widths, opacity behavior, angular geometry, desktop/mobile behavior) are recorded in design/brand-guide.md.
 
+### Eligibility — CONFIRMED
+
+Trojan Hacks 2026 is open to undergraduate and graduate students. Previous hackathon experience is not required — first-time hackers are welcome.
+
+High-school eligibility, exact team size, cost, and registration dates remain unconfirmed (see below).
+
 ---
 
 ## Proposed / Not Confirmed

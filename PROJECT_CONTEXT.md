@@ -48,8 +48,8 @@ Current concept:
 - Approximately six hours
 - Trevecca Nazarene University
 - Nashville, Tennessee
-- Primarily undergraduate students
-- Graduate students may potentially participate
+- Open to undergraduate and graduate students
+- Previous hackathon experience is not required
 - High-school participation is not currently a priority
 - Target ending time is approximately 4:30 PM
 
