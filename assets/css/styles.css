@@ -686,3 +686,159 @@ img {
     margin-bottom: var(--space-5);
   }
 }
+
+/* ==========================================================================
+   Chapter 04 — Six Hours. One Build.
+   Only this chapter is styled below. 05–09 still inherit the global
+   foundation rules only.
+   ========================================================================== */
+
+.section-build {
+  background: var(--color-surface);
+  padding-block: var(--space-8);
+  scroll-margin-top: var(--space-7);
+}
+
+.section-build-intro {
+  max-width: var(--text-max-width);
+  margin-bottom: var(--space-5);
+}
+
+.section-build-heading {
+  display: flex;
+  flex-direction: column;
+  font-size: var(--text-section-title);
+  line-height: 1.05;
+  letter-spacing: -0.01em;
+  text-transform: uppercase;
+  color: var(--color-text);
+  margin-top: var(--space-2);
+}
+
+.section-build-copy {
+  margin-top: var(--space-3);
+  font-size: var(--text-body);
+  color: var(--color-text);
+  line-height: 1.6;
+}
+
+.section-build-note {
+  margin-top: var(--space-1);
+  font-size: var(--text-small-label);
+  font-weight: var(--weight-body-medium);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+}
+
+/* The timeline map: three quiet lines merge into one spine, which steps
+   across the six stages in a right-angle zigzag, then continues toward
+   the bottom edge to imply the journey carries into Chapter 05. Stage
+   labels are real HTML, positioned by the same percentage-matches-viewBox
+   technique used in Chapter 03, so they stay locked to their waypoint. */
+.timeline-map {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1200 / 500;
+}
+
+.timeline-svg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.stage-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.stage {
+  position: absolute;
+  text-align: center;
+  width: clamp(90px, 12vw, 140px);
+}
+
+.stage--high {
+  transform: translate(-50%, calc(-100% - 14px));
+}
+
+.stage--low {
+  transform: translate(-50%, 14px);
+}
+
+.stage--01 { left: 6.7%;  top: 40%; }
+.stage--02 { left: 24%;   top: 64%; }
+.stage--03 { left: 41.3%; top: 40%; }
+.stage--04 { left: 58.7%; top: 64%; }
+.stage--05 { left: 76%;   top: 40%; }
+.stage--06 { left: 93.3%; top: 64%; }
+
+.stage-label {
+  font-family: var(--font-heading);
+  font-size: var(--text-small-label);
+  font-weight: var(--weight-heading-bold);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--color-text);
+}
+
+@media (max-width: 860px) {
+  .timeline-map {
+    aspect-ratio: auto;
+    height: auto;
+  }
+  .timeline-svg {
+    display: none;
+  }
+  .stage-list {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-4);
+    padding-left: var(--space-6);
+  }
+  .stage-list::before {
+    content: "";
+    position: absolute;
+    top: 6px;
+    bottom: 6px;
+    left: 6px;
+    width: var(--path-stroke-mobile);
+    background: var(--color-purple);
+    opacity: var(--path-opacity-quiet);
+  }
+  .stage {
+    position: relative;
+    left: auto;
+    top: auto;
+    width: auto;
+    text-align: left;
+  }
+  .stage--high,
+  .stage--low {
+    transform: none;
+  }
+  .stage::before {
+    content: "";
+    position: absolute;
+    left: calc(var(--space-6) * -1 + 2px);
+    top: 6px;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: var(--color-purple);
+    opacity: var(--path-opacity-quiet);
+  }
+}
+
+@media (max-width: 640px) {
+  .section-build {
+    padding-block: var(--space-6);
+  }
+  .section-build-intro {
+    margin-bottom: var(--space-5);
+  }
+}
