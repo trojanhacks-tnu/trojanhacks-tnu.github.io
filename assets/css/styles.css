@@ -402,18 +402,6 @@ img {
   vector-effect: non-scaling-stroke;
 }
 
-.next-chapter {
-  position: absolute;
-  bottom: 0;
-  right: 0;
-  font-family: var(--font-body);
-  font-size: var(--text-small-label);
-  font-weight: var(--weight-body-medium);
-  letter-spacing: 0.04em;
-  color: var(--color-text-muted);
-  white-space: nowrap;
-}
-
 @media (max-width: 860px) {
   .hero-path-zone {
     position: relative;
@@ -422,12 +410,6 @@ img {
     width: 100%;
     height: clamp(220px, 42vh, 340px);
     margin-top: var(--space-5);
-  }
-  .next-chapter {
-    position: static;
-    display: block;
-    margin-top: var(--space-2);
-    text-align: right;
   }
 }
 
@@ -446,5 +428,119 @@ img {
   }
   .hero-path-zone {
     height: clamp(200px, 46vh, 300px);
+  }
+}
+
+/* ==========================================================================
+   Chapter 02 — The Call
+   Only this chapter is styled below. 03–09 still inherit the global
+   foundation rules only.
+   ========================================================================== */
+
+.section-call {
+  position: relative;
+  background: var(--color-surface);
+  padding-block: var(--space-8);
+}
+
+.section-call-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-6);
+  align-items: start;
+}
+
+.chapter-label {
+  font-size: var(--text-small-label);
+  font-weight: var(--weight-body-semibold);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+  margin-bottom: var(--space-3);
+}
+
+.section-call-heading {
+  display: flex;
+  flex-direction: column;
+  font-size: var(--text-section-title);
+  line-height: 1.05;
+  letter-spacing: -0.01em;
+  text-transform: uppercase;
+  color: var(--color-text);
+}
+
+.section-call-body {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  max-width: var(--text-max-width);
+}
+
+.section-call-body p {
+  font-size: var(--text-body);
+  color: var(--color-text);
+  line-height: 1.6;
+}
+
+.principles-list {
+  list-style: none;
+  margin: var(--space-5) 0 0;
+  padding: var(--space-4) 0 0 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  border-top: 1px solid var(--color-border);
+  max-width: var(--text-max-width);
+}
+
+.principles-list li {
+  font-family: var(--font-heading);
+  font-weight: var(--weight-heading-medium);
+  font-size: var(--text-body);
+  letter-spacing: 0.04em;
+  color: var(--color-purple);
+  text-transform: uppercase;
+}
+
+/* Same arena-path language as Chapter 01, just quieter and simpler —
+   one straight line, one waypoint, no branching. Anchored to the same
+   1040px reference width as the hero's path so the two line up as one
+   continuous path rather than two separate lines. */
+.section-call-path {
+  position: absolute;
+  top: var(--space-6);
+  bottom: var(--space-6);
+  right: calc((100% - 1040px) / 2 + clamp(8px, 4vw, 32px));
+  width: 24px;
+  pointer-events: none;
+}
+
+.section-call-path svg {
+  width: 100%;
+  height: 100%;
+}
+
+.arena-path--quiet {
+  opacity: var(--path-opacity-quiet);
+}
+
+.path-waypoint {
+  fill: var(--color-purple);
+  opacity: var(--path-opacity-quiet);
+}
+
+@media (max-width: 860px) {
+  .section-call-grid {
+    grid-template-columns: 1fr;
+    gap: var(--space-5);
+  }
+  .section-call-path {
+    right: 8px;
+  }
+}
+
+@media (max-width: 640px) {
+  .section-call {
+    padding-block: var(--space-6);
   }
 }
