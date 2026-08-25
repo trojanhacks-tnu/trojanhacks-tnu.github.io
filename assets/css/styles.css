@@ -66,3 +66,385 @@
   --path-opacity-quiet: 0.55;
   --path-opacity-faint: 0.18;
 }
+
+/*
+  Global foundation — applies site-wide (typography, reset, focus states).
+  This is the "basic inherited global typography/background behavior"
+  chapters 02–09 pick up automatically. It does not style any chapter
+  individually.
+*/
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background: var(--color-bg);
+  color: var(--color-text);
+  font-family: var(--font-body);
+  font-weight: var(--weight-body-regular);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+  font-weight: var(--weight-heading-bold);
+  line-height: 1.1;
+  margin: 0;
+}
+
+p {
+  margin: 0;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+svg {
+  display: block;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-purple);
+  outline-offset: 3px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+.container {
+  max-width: var(--content-max-width);
+  margin-inline: auto;
+  padding-inline: var(--space-3);
+}
+
+/* Skip link — hidden until focused, then jumps above everything */
+.skip-link {
+  position: absolute;
+  top: -48px;
+  left: var(--space-2);
+  background: var(--color-purple);
+  color: #fff;
+  padding: var(--space-1) var(--space-3);
+  border-radius: 4px;
+  font-family: var(--font-body);
+  font-weight: var(--weight-body-semibold);
+  z-index: 1000;
+  transition: top 0.15s ease;
+}
+
+.skip-link:focus {
+  top: var(--space-2);
+}
+
+/* Status badge — reused as-is by later chapters once they're styled */
+.status-badge {
+  display: inline-block;
+  font-size: var(--text-small-label);
+  font-weight: var(--weight-body-semibold);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+  border: 1px solid var(--color-border);
+  border-radius: 4px;
+  padding: 6px 12px;
+}
+
+/* ==========================================================================
+   Site header / navigation
+   ========================================================================== */
+
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: var(--color-bg);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.nav {
+  max-width: var(--content-max-width);
+  margin-inline: auto;
+  padding: var(--space-2) var(--space-3);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-3);
+}
+
+.logo {
+  flex-shrink: 0;
+  font-family: var(--font-heading);
+  font-weight: var(--weight-heading-bold);
+  font-size: 1.125rem;
+  color: var(--color-purple);
+}
+
+.nav-links {
+  display: flex;
+  gap: var(--space-4);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: thin;
+}
+
+.nav-links a {
+  display: inline-block;
+  padding: 4px 2px;
+  font-size: var(--text-small-label);
+  font-weight: var(--weight-body-medium);
+  color: var(--color-text-muted);
+  white-space: nowrap;
+}
+
+.nav-links a:hover,
+.nav-links a:focus-visible {
+  color: var(--color-purple);
+}
+
+@media (max-width: 640px) {
+  .nav-links {
+    gap: var(--space-3);
+  }
+}
+
+/* ==========================================================================
+   Chapter 01 — The Gates (hero)
+   Only this chapter is fully styled. 02–09 inherit the rules above only.
+   ========================================================================== */
+
+.hero {
+  position: relative;
+  min-height: calc(100svh - 72px);
+  min-height: calc(100vh - 72px);
+  display: flex;
+  align-items: center;
+  padding-block: var(--space-5);
+  overflow: visible;
+}
+
+/* Dot grid lives on its own layer so it can fade at the edges
+   without affecting the readable content stacked above it. */
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(rgba(82, 45, 109, 0.07) 1px, transparent 1px);
+  background-size: 30px 30px;
+  background-position: -15px -15px;
+  -webkit-mask-image: radial-gradient(ellipse at center, black 45%, transparent 85%);
+  mask-image: radial-gradient(ellipse at center, black 45%, transparent 85%);
+  z-index: 0;
+  pointer-events: none;
+}
+
+.hero-inner {
+  position: relative;
+  width: 100%;
+  max-width: 1040px;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--space-2);
+  max-width: var(--text-max-width);
+}
+
+.hero-title {
+  display: flex;
+  flex-direction: column;
+  font-size: var(--text-hero-title);
+  line-height: 0.98;
+  letter-spacing: -0.01em;
+  text-transform: uppercase;
+}
+
+.hero-title-line {
+  color: var(--color-text);
+}
+
+.hero-title-year {
+  color: var(--color-purple);
+}
+
+.hero-title-year::after {
+  content: "";
+  display: block;
+  width: 64px;
+  height: 3px;
+  margin-top: var(--space-2);
+  background: var(--color-accent-gold);
+}
+
+.tagline {
+  font-family: var(--font-heading);
+  font-size: var(--text-hero-subtitle);
+  font-weight: var(--weight-heading-medium);
+  color: var(--color-purple);
+}
+
+.mission-line {
+  font-size: var(--text-body);
+  font-weight: var(--weight-body-semibold);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--color-text);
+}
+
+.location {
+  font-size: var(--text-body);
+  color: var(--color-text-muted);
+  line-height: 1.5;
+}
+
+.registration-status {
+  margin-top: var(--space-2);
+}
+
+.registration-label {
+  font-size: var(--text-small-label);
+  font-weight: var(--weight-body-semibold);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+}
+
+.registration-value {
+  font-family: var(--font-heading);
+  font-size: var(--text-hero-subtitle);
+  font-weight: var(--weight-heading-medium);
+  color: var(--color-text);
+}
+
+/* The gate + arena path share one zone anchored near the "2026" line,
+   so the geometry reads as part of the headline, not a separate panel.
+   It intentionally extends past the hero's own bottom edge. */
+.hero-path-zone {
+  position: absolute;
+  z-index: 1;
+  top: calc(var(--text-hero-title) * 3 + var(--space-2));
+  right: clamp(8px, 4vw, 32px);
+  width: clamp(140px, 16vw, 240px);
+  height: calc(100vh - (var(--text-hero-title) * 3 + var(--space-2)) + 90px);
+  pointer-events: none;
+}
+
+.hero-visual {
+  width: 100%;
+  height: 100%;
+}
+
+.gate-visual {
+  width: 100%;
+  height: 100%;
+}
+
+.gate-visual--mobile {
+  display: none;
+}
+
+.gate-line {
+  fill: none;
+  stroke: var(--color-purple);
+  stroke-width: 2px;
+  stroke-linecap: square;
+  stroke-linejoin: miter;
+  vector-effect: non-scaling-stroke;
+}
+
+.gate-accent {
+  fill: none;
+  stroke: var(--color-accent-gold);
+  stroke-width: 3px;
+  stroke-linecap: square;
+  stroke-linejoin: miter;
+  vector-effect: non-scaling-stroke;
+}
+
+.arena-path {
+  fill: none;
+  stroke: var(--path-color);
+  stroke-width: var(--path-stroke-desktop);
+  stroke-linecap: square;
+  stroke-linejoin: miter;
+  opacity: var(--path-opacity-bold);
+  vector-effect: non-scaling-stroke;
+}
+
+.next-chapter {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  font-family: var(--font-body);
+  font-size: var(--text-small-label);
+  font-weight: var(--weight-body-medium);
+  letter-spacing: 0.04em;
+  color: var(--color-text-muted);
+  white-space: nowrap;
+}
+
+@media (max-width: 860px) {
+  .hero-path-zone {
+    position: relative;
+    top: auto;
+    right: auto;
+    width: 100%;
+    height: clamp(220px, 42vh, 340px);
+    margin-top: var(--space-5);
+  }
+  .next-chapter {
+    position: static;
+    display: block;
+    margin-top: var(--space-2);
+    text-align: right;
+  }
+}
+
+@media (max-width: 640px) {
+  .hero {
+    padding-block: var(--space-5);
+  }
+  .gate-visual--desktop {
+    display: none;
+  }
+  .gate-visual--mobile {
+    display: block;
+  }
+  .arena-path {
+    stroke-width: var(--path-stroke-mobile);
+  }
+  .hero-path-zone {
+    height: clamp(200px, 46vh, 300px);
+  }
+}
