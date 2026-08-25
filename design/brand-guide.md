@@ -97,3 +97,43 @@ The website should use:
 - clear hierarchy
 - subtle movement
 - strong mobile design
+
+## Storytelling Architecture (Confirmed)
+
+The site is structured as nine narrative chapters, framed as a journey through the arena:
+
+01 — THE GATES (Hero / arrival)
+02 — THE CALL (Why Trojan Hacks exists)
+03 — CHOOSE YOUR PATH (Competition tracks)
+04 — SIX HOURS. ONE BUILD. (Event journey / timeline)
+05 — THE FORGE (Building, experimentation, failure, learning, rebuilding, shipping)
+06 — CLAIM THE GLORY (Prizes / recognition)
+07 — THE ALLIANCE (Sponsors / partners)
+08 — KNOW BEFORE YOU ENTER (FAQ / practical information)
+09 — YOUR MOVE (Final registration CTA)
+
+## Arena Path Motif
+
+A single continuous, angular "arena path" runs through the whole page and changes behavior per chapter:
+
+- Begins boldly at The Gates
+- Becomes quieter through The Call
+- Splits into branches at Choose Your Path
+- Recombines into the event timeline at Six Hours. One Build.
+- Becomes deliberately imperfect / zigzags briefly in The Forge
+- Narrows toward a point at Claim the Glory
+- Fades during The Alliance
+- Nearly disappears during Know Before You Enter
+- Returns strongly and terminates at Your Move
+
+## Narrative Rules
+
+- Trojan mythology is metaphor, not literal historical illustration.
+- Use mythic language primarily in chapter names.
+- Body copy should remain modern, clear, and natural.
+- Avoid stacking multiple mythic words in one sentence.
+- Avoid Trojan Horse imagery.
+- Avoid named mythological characters.
+- Avoid weapons, armor, parchment, historical serif fonts, literal laurels, gaming UI, XP bars, fantasy quest language, and historical cosplay aesthetics.
+- The website should feel like engineering and technology first, Trojan-inspired second.
+- No unconfirmed sponsor, date, prize, speaker, registration, Google, or MLH claims.

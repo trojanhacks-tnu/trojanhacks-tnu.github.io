@@ -40,6 +40,18 @@ Modern technology + subtle Trojan/Greek influence.
 
 Trevecca purple should be incorporated.
 
+### Website Storytelling Architecture — CONFIRMED
+
+The website uses a nine-chapter narrative structure (Navigation and Footer sit outside the chapter sequence):
+
+01 The Gates · 02 The Call · 03 Choose Your Path · 04 Six Hours. One Build. · 05 The Forge · 06 Claim the Glory · 07 The Alliance · 08 Know Before You Enter · 09 Your Move
+
+The recurring visual motif is a continuous angular "arena path" that changes weight/behavior per chapter (bold at The Gates, splitting at Choose Your Path, becoming the timeline spine, zigzagging briefly in The Forge, narrowing at Claim the Glory, fading through The Alliance, nearly disappearing at FAQ, returning strongly at Your Move).
+
+Narrative rule: Trojan mythology is metaphor, not literal historical illustration — engineering and technology first, Trojan-inspired second. No unconfirmed sponsor, date, prize, speaker, registration, Google, or MLH claims.
+
+Full chapter purposes and complete narrative rules are recorded in PROJECT_CONTEXT.md and design/brand-guide.md.
+
 ---
 
 ## Proposed / Not Confirmed

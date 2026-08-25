@@ -134,20 +134,38 @@ Trevecca purple should be incorporated into the visual identity.
 
 Avoid generic AI-generated visuals.
 
-## Initial Website Sections
+## Website Storytelling Architecture (Confirmed)
 
-The first website should include:
+The website follows a chapter-based narrative structure, framed as a journey through the arena. Navigation and Footer remain structural elements outside the chapter sequence.
 
-1. Navigation
-2. Hero
-3. About
-4. Tracks
-5. Schedule
-6. Prizes
-7. Sponsors
-8. FAQ
-9. Registration CTA
-10. Footer
+01 — THE GATES
+Purpose: Hero / arrival
+
+02 — THE CALL
+Purpose: Why Trojan Hacks exists
+
+03 — CHOOSE YOUR PATH
+Purpose: Competition tracks
+
+04 — SIX HOURS. ONE BUILD.
+Purpose: Event journey / timeline
+
+05 — THE FORGE
+Purpose: Building, experimentation, failure, learning, rebuilding, shipping
+
+06 — CLAIM THE GLORY
+Purpose: Prizes / recognition
+
+07 — THE ALLIANCE
+Purpose: Sponsors / partners
+
+08 — KNOW BEFORE YOU ENTER
+Purpose: FAQ / practical information
+
+09 — YOUR MOVE
+Purpose: Final registration CTA
+
+The recurring visual motif (a continuous angular "arena path") and the full narrative rules are recorded in design/brand-guide.md. Confirmation status is recorded in DECISIONS.md.
 
 ## Accuracy Rule
 
