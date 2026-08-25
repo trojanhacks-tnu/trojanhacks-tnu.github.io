@@ -544,3 +544,145 @@ img {
     padding-block: var(--space-6);
   }
 }
+
+/* ==========================================================================
+   Chapter 03 — Choose Your Path
+   Only this chapter is styled below. 04–09 still inherit the global
+   foundation rules only.
+   ========================================================================== */
+
+.section-path {
+  background: var(--color-bg);
+  padding-block: var(--space-8);
+}
+
+.section-path-intro {
+  max-width: var(--text-max-width);
+  margin-bottom: var(--space-5);
+}
+
+.section-path-heading {
+  display: flex;
+  flex-direction: column;
+  font-size: var(--text-section-title);
+  line-height: 1.05;
+  letter-spacing: -0.01em;
+  text-transform: uppercase;
+  color: var(--color-text);
+  margin-top: var(--space-2);
+}
+
+.section-path-copy {
+  margin-top: var(--space-3);
+  font-size: var(--text-body);
+  color: var(--color-text-muted);
+  line-height: 1.6;
+}
+
+/* The route map: one SVG (the trunk splitting into three branches) with
+   three real HTML placeholders positioned at each branch's endpoint.
+   Coordinates are percentages, matching the SVG's 1000x600 viewBox, so
+   the labels stay locked to their waypoints at any width. */
+.route-map {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1000 / 600;
+}
+
+.route-map-svg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.path-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.path-slot {
+  position: absolute;
+  transform: translateX(-50%);
+  text-align: center;
+  width: clamp(120px, 18vw, 180px);
+}
+
+/* top offsets sit ~14px below their waypoint dot so the dot itself
+   stays visible above the label instead of being covered by it */
+.path-slot--01 { left: 20%; top: calc(43.3% + 14px); }
+.path-slot--02 { left: 50%; top: calc(46.7% + 14px); }
+.path-slot--03 { left: 82%; top: calc(55% + 14px); }
+
+.path-slot h3 {
+  font-size: var(--text-small-label);
+  font-weight: var(--weight-heading-bold);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--color-text);
+  margin-bottom: var(--space-1);
+}
+
+.path-slot-status {
+  font-size: var(--text-small-label);
+  font-weight: var(--weight-body-medium);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+}
+
+@media (max-width: 860px) {
+  .route-map {
+    aspect-ratio: auto;
+    height: auto;
+  }
+  .route-map-svg {
+    display: none;
+  }
+  .path-list {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-5);
+    padding-left: var(--space-6);
+  }
+  .path-list::before {
+    content: "";
+    position: absolute;
+    top: 6px;
+    bottom: 6px;
+    left: 6px;
+    width: var(--path-stroke-mobile);
+    background: var(--color-purple);
+    opacity: var(--path-opacity-quiet);
+  }
+  .path-slot {
+    position: relative;
+    left: auto;
+    top: auto;
+    transform: none;
+    text-align: left;
+    width: auto;
+  }
+  .path-slot::before {
+    content: "";
+    position: absolute;
+    left: calc(var(--space-6) * -1 + 2px);
+    top: 6px;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: var(--color-purple);
+    opacity: var(--path-opacity-quiet);
+  }
+}
+
+@media (max-width: 640px) {
+  .section-path {
+    padding-block: var(--space-6);
+  }
+  .section-path-intro {
+    margin-bottom: var(--space-5);
+  }
+}
